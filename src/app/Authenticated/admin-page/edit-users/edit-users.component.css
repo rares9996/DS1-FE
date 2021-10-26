@@ -1,0 +1,10 @@
+.table-users {
+ width: 100%;
+}
+.table-wrapper
+{
+  width: 70%;
+  display: flex;
+  margin: 10% auto 5% auto;
+}
+
