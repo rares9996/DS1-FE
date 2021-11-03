@@ -1,0 +1,16 @@
+<div class="chart-wrapper">
+  <div class="energy">kWh</div>
+  <div class = "canvas-wrapper">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+    <div class="time">Time</div>
+  </div>
+
+  <div class="total"> {{today|date:'dd MMMM yyyy'}} total kWh/h: {{total}}</div>
+</div>

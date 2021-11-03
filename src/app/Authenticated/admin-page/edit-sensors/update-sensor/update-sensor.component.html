@@ -1,0 +1,15 @@
+<form  [formGroup]="form">
+  <div class="content-wrapper">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <div mat-dialog-content>
+      <mat-form-field appearance="fill" class="description">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Close</button>
+      <button class="update-button" mat-button (click)="submit()" cdkFocusInitial>Update</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+.chart-wrapper {
+  width: 80%;
+  margin-right: 10%
+}
+.total
+{
+  margin-top:50px;
+  font-size: 200%;
+}
+.canvas-wrapper
+{
+  display: flex;
+}
+.time
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  font-size: 150%;
+  margin-bottom: 15px;
+  margin-left: 15px;
+
+}
+.energy
+{
+  font-size: 150%;
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+::ng-deep .mat-tab-body-content.ng-tns-c135-2.ng-trigger.ng-trigger-translateTab
+{
+  overflow: hidden;
+}

@@ -1,0 +1,28 @@
+<form  [formGroup]="form">
+  <div class="content-wrapper">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <div mat-dialog-content>
+      <mat-form-field appearance="fill" class="address">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill" class="description">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Sensor</mat-label>
+        <mat-select formControlName="sensor">
+          <mat-option *ngFor="let sensor of availableSensors" [value]="sensor">
+            {{sensor.description}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Close</button>
+      <button class="update-button" mat-button (click)="submit()" cdkFocusInitial>Update</button>
+    </div>
+  </div>
+</form>

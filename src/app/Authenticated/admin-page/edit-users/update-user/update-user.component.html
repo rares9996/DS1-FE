@@ -1,0 +1,49 @@
+  <mat-card>
+    <mat-card-title>{{data.title}}</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Address" formControlName="address">
+          </mat-form-field>
+        </p>
+        <p *ngIf="!this.data.element" class="address">
+          <mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Birthday Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="birth_date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </mat-form-field>
+        </p>
+        <p *ngIf="!this.data.element">
+          <mat-form-field>
+            <input type="email" matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
+        </p>
+        <p *ngIf="!this.data.element">
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Devices</mat-label>
+            <mat-select formControlName="devices" multiple>
+              <mat-option *ngFor="let devices of availableDevices" [value]="devices">{{devices.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <div class="button">
+          <button [disabled]="!form.valid" type="submit" mat-button>{{data.title}}</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
