@@ -1,1 +1,8 @@
-<p>user-page works!</p>
+<mat-tab-group >
+  <mat-tab class = "mat-tab-class" label="Devices"> <app-edit-devices [isAdmin]="false"></app-edit-devices> </mat-tab>
+  <mat-tab label="Sensors"> <app-edit-sensors [isAdmin]="false"></app-edit-sensors> </mat-tab>
+  <mat-tab label="Daily Monitored Values"><app-user-chart></app-user-chart></mat-tab>
+</mat-tab-group>
+<div class="name-div">
+  Welcome, {{name}}
+</div>

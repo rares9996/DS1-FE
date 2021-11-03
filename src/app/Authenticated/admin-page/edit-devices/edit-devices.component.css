@@ -1,0 +1,22 @@
+.table-users {
+  width: 100%;
+}
+.table-wrapper
+{
+  width: 70%;
+  display: flex;
+  margin: 10% auto 5% auto;
+  flex-direction: column;
+}
+.add-button-wrapper
+{
+  display: flex;
+  align-self: self-end;
+}
+.total-consumption
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

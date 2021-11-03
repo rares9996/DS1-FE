@@ -10,7 +10,7 @@ import {UserPageComponent} from './Authenticated/user-page/user-page.component';
 import {AuthAdminGuard} from './service/guard/auth-admin.guard';
 import {AuthUserGuard} from './service/guard/auth-user.guard';
 import {AppRoutingModule} from './app-routing.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -26,6 +26,16 @@ import { EditDevicesComponent } from './Authenticated/admin-page/edit-devices/ed
 import { EditSensorsComponent } from './Authenticated/admin-page/edit-sensors/edit-sensors.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import { UpdateDeviceComponent } from './Authenticated/admin-page/edit-devices/update-device/update-device.component';
+import { UpdateSensorComponent } from './Authenticated/admin-page/edit-sensors/update-sensor/update-sensor.component';
+import { UpdateUserComponent } from './Authenticated/admin-page/edit-users/update-user/update-user.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import { MonitoredValuesDialogComponent } from './Authenticated/admin-page/edit-sensors/monitored-values-dialog/monitored-values-dialog.component';
+import { UserChartComponent } from './Authenticated/user-page/user-chart/user-chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { DeviceHistoryComponent } from './Authenticated/admin-page/edit-devices/device-history/device-history.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +47,13 @@ import {MatTableModule} from '@angular/material/table';
     UserPageComponent,
     EditUsersComponent,
     EditDevicesComponent,
-    EditSensorsComponent
+    EditSensorsComponent,
+    UpdateDeviceComponent,
+    UpdateSensorComponent,
+    UpdateUserComponent,
+    MonitoredValuesDialogComponent,
+    UserChartComponent,
+    DeviceHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +69,12 @@ import {MatTableModule} from '@angular/material/table';
     MatNativeDateModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule,
+    ChartsModule
   ],
   providers: [AuthAdminGuard, AuthUserGuard, MatDatepickerModule, MatNativeDateModule, authInterceptorProviders],
   bootstrap: [AppComponent]

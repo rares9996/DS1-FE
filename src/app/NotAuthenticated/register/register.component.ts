@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     } else {
       roles.push('USER');
     }
-    this.registerService.register(username, password, name, address, birthdayDate, roles).subscribe();
+    this.registerService.register(username, password, name, address, birthdayDate, roles, []).subscribe();
   }
 
 }

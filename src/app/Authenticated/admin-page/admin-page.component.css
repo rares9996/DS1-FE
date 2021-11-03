@@ -1,7 +1,17 @@
-::ng-deep.mat-tab-body-wrapper
+::ng-deep .mat-tab-label-container
 {
-  width:100%;
-  height: 100%;
-  background-color: #ffcc9c
-;
+  background-color: white;
+}
+.name-div
+{
+  position:absolute;
+  top:0;
+  right: 0;
+  opacity: .6;
+  margin-right:10px;
+  margin-top: 10px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 120%;
+  z-index: 1;
 }

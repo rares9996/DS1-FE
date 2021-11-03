@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {getToken} from 'codelyzer/angular/styles/cssLexer';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -26,14 +25,14 @@ export class TokenStorageService {
     const jwtHelper = new JwtHelperService();
     const token = this.getToken();
     const user = this.getUser();
-    const isAdmin = user !== null ? user.roles.filter((role: string) => role === 'ADMIN').length > 0 : false;
+    const isAdmin = (user && user.roles) ? user.roles.filter((role: string) => role === 'ADMIN').length > 0 : false;
     return token !== null ? (!jwtHelper.isTokenExpired(token) && !isAdmin) : false;
   }
   private getIsLoggedAsAdminInStatus(): any {
     const jwtHelper = new JwtHelperService();
     const token = this.getToken();
     const user = this.getUser();
-    const isAdmin = user !== null ? user.roles.filter((role: string) => role === 'ADMIN').length > 0 : false;
+    const isAdmin = (user && user.roles) ? user.roles.filter((role: string) => role === 'ADMIN').length > 0 : false;
     return token !== null ? (!jwtHelper.isTokenExpired(token) && isAdmin) : false;
   }
 
@@ -79,6 +78,14 @@ export class TokenStorageService {
       return JSON.parse(user);
     }
     return {};
+  }
+
+  public isAdmin(): boolean {
+    const user = this.getUser();
+    if (!user.roles) {
+      return false;
+    }
+    return user.roles.filter((role: string) => role === 'ADMIN').length > 0;
   }
 
 }

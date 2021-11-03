@@ -8,10 +8,11 @@ import {TokenStorageService} from '../../service/token-storage.service';
 })
 export class UserPageComponent implements OnInit {
 
-  constructor(private tokenStorage: TokenStorageService) { }
-
+  constructor(private tokenStorage: TokenStorageService) {
+    this.name = this.tokenStorage.getUser().name;
+  }
+  public name?: string;
   ngOnInit(): void {
-    console.log(this.tokenStorage.getUser());
   }
 
 }

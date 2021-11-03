@@ -1,1 +1,56 @@
-<p>edit-devices works!</p>
+<div class="host-user">
+  <div class="table-wrapper">
+    <div *ngIf="isAdmin" class="add-button-wrapper">
+      <button mat-icon-button (click)="addDevice()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="table-users">
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="maximumEnergyConsumption">
+        <th mat-header-cell *matHeaderCellDef> Maximum Energy Consumption</th>
+        <td mat-cell *matCellDef="let element"> {{element.maximumEnergyConsumption}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="averageEnergyConsumption">
+        <th mat-header-cell *matHeaderCellDef>Average Energy Consumption</th>
+        <td mat-cell *matCellDef="let element"> {{element.averageEnergyConsumption}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sensor">
+        <th mat-header-cell *matHeaderCellDef> Sensor</th>
+        <td mat-cell *matCellDef="let element"> {{element.sensor?.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>{{!isAdmin ? 'Total Energy Consumption:' : ''}}</th>
+        <td mat-cell *matCellDef="let element">
+          <div class = "total-consumption"*ngIf="!isAdmin">{{calculateTotalDeviceConsumption(element.sensor)}}
+            <button mat-icon-button (click)="makeHistoryOfDevice(element)">
+              <mat-icon>expand</mat-icon>
+            </button>
+          </div>
+          <button *ngIf="isAdmin" mat-icon-button (click)="deleteDevice(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button *ngIf="isAdmin" mat-icon-button (click)="editDevice(element)">
+            <mat-icon>mode_edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

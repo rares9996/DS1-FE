@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from '../../model/User';
-import {AdminService} from '../../service/admin.service';
+import {TokenStorageService} from '../../service/token-storage.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -8,11 +7,12 @@ import {AdminService} from '../../service/admin.service';
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent implements OnInit {
-
-  constructor() {
+  public name?: string;
+  constructor(private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
+    this.name = this.tokenStorage.getUser().name;
   }
 
 }

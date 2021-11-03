@@ -1,1 +1,46 @@
-<p>edit-sensors works!</p>
+<div class = "host-user">
+  <div class="table-wrapper">
+    <div *ngIf="isAdmin" class = "add-button-wrapper">
+      <button  mat-icon-button (click)="addSensor()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="table-users">
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element?.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="maximumValue">
+        <th mat-header-cell *matHeaderCellDef> Maximum Value</th>
+        <td mat-cell *matCellDef="let element"> {{element.maximumValue}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="monitoredValue">
+        <th mat-header-cell *matHeaderCellDef> Monitored Values</th>
+        <td mat-cell *matCellDef="let element" >
+          <button mat-icon-button (click)="viewMonitoredValues(element)">
+            <mat-icon>expand</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button *ngIf="isAdmin" mat-icon-button (click)="deleteSensor(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button *ngIf="isAdmin" mat-icon-button (click)="editSensor(element)">
+            <mat-icon>mode_edit</mat-icon>
+          </button>
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
